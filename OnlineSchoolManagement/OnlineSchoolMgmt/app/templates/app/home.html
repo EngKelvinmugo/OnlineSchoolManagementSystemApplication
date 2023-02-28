@@ -1,0 +1,93 @@
+{% extends 'app/Links.html' %}
+ 
+{% block content %}
+ 
+<div class="container ">
+ 
+    <br><br>
+<div class="row">
+    <div class="col-md-9">
+        <h5>Notice:</h5>
+        
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Notice</th>
+                    <th>Date</th>
+                </tr>
+                {% for n in notice %}
+                <tr>
+                    <td>{{n.Message}} </td>
+                    <td>{{n.date_created}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+ 
+<br><br>
+ 
+<div class="row">
+    <div class="col-md-9">
+        <h5>Attendance:</h5>
+        
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Student Id</th>
+                    <th>Student Name</th>
+                    <th>Attended Lectures</th>                    
+                    <th>Total Lectures</th>
+                </tr>
+                {% for a in attendance %}
+                <tr>
+                    <td>{{a.StudentId}} </td>
+                    <td>{{a.StudentName}} </td>
+                    <td>{{a.LecturesAttended}} </td>
+                    <td> {{a.TotalLectures}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+ 
+<br><br>
+ 
+<div class="row">
+    <div class="col-md-9">
+        <h5>Marks:</h5>
+        
+        <div class="card card-body">
+            
+            <table class="table table-sm">
+                <tr>
+                    <th>Student Id</th>
+                    <th>Student Name</th>
+                    <th>Physics Marks</th>      
+                    <th>Chemistry Marks</th>      
+                    <th>Maths Marks</th>      
+                    <th>English Marks</th>      
+                    <th>Computer Marks</th>  
+                </tr>
+                {% for m in marks %}
+                <tr>
+                    <td>{{m.StudentId}} </td>
+                    <td>{{m.StudentName}} </td>
+                    <td>{{m.PhysicsMarks}} </td>
+                    <td>{{m.ChemistryMarks}} </td>
+                    <td>{{m.MathsMarks}} </td>
+                    <td>{{m.EnglishMarks}} </td>
+                    <td>{{m.ComputerMarks}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p> <b>Note:</b> Marks are out of 100</p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+ 
+<style>
+  .greet{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+ 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+ 
+    <ul class="navbar-nav">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      {% if request.user.is_staff %}
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'addAttendance' %}">Add Attendance</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'addNotice' %}">Add Notice</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'addMarks' %}">Add Marks</a>
+      </li>
+      {% endif %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+    </ul>
+  </div>
+  {% if request.user.is_staff %}
+  <span class="greet">Hello, {{request.user}}</span>
+  <span ><a  class="greet" href="{% url 'logout' %}">Logout</a></span>
+  {% endif %}
+ 
+</nav>
